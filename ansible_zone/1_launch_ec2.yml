@@ -1,0 +1,12 @@
+#Playbook for simple deployment of ec2 instance
+---
+- hosts: localhost
+  name: Launching aws ec2 instance
+  gather_facts: false
+  tasks:
+  - name: Launching ec2 instance with ec2 module
+    ec2:
+      instance_type: t2.micro
+      image: ami-009110a2bf8d7dd0a
+      key_name: control_key
+      region: ap-south-1

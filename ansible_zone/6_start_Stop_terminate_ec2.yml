@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: start ec2 instance
+    ec2:
+      instance_ids: ['i-068fad0ab6a250da3']
+      state: running
+      region: ap-south-1
+      wait: yes
+    tags:
+    - start
+    - never
+  - name: stop ec2 instance
+    ec2:
+      instance_ids: ['i-068fad0ab6a250da3']
+      state: stopped
+      region: ap-south-1
+      wait: yes
+    tags:
+    - stop
+    - never
+  - name: terminate ec2 instance
+    ec2:
+      instance_ids: ['i-068fad0ab6a250da3']
+      state: absent
+      region: ap-south-1
+      wait: yes
+    tags:
+    - terminate
+    - never
+  

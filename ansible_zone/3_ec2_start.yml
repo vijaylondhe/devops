@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: start ec2 instance
+    ec2:
+      instance_ids: ['i-068fad0ab6a250da3']
+      state: running
+      region: ap-south-1
+      wait: yes
+      
